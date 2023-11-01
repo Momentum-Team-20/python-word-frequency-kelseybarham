@@ -14,6 +14,7 @@ def remove_punctuation(str):
 
 
 def remove_stop_words(word_list):
+    # all words that aren't stop words are no_stop_words
     no_stop_words = []
     for word in word_list:
         if word not in STOP_WORDS:
@@ -29,20 +30,28 @@ def print_word_freq(file):
 
     # turn string into list and lower turns it to lowercase
     word_list = clean_text.lower().split()
-    print(word_list)
+    # print(word_list)
     word_count_dict = {}
     cleaner_text = remove_stop_words(word_list)
-    print(cleaner_text)
+    # print(cleaner_text)
     # to make the word count:
-#     for word in word_list: 
-#         if word in word_count_dict.keys():
-#             word_count_dict[word] = word_count_dict[word] + 1
-#             print(word_count_dict)
-#         else:
-#             word_count_dict[word] = 1
-# print(word_count_dict.keys())
+    for word in cleaner_text: 
+        if word in word_count_dict.keys():
+            word_count_dict[word] = word_count_dict[word] + 1
+            #print(word_count_dict)
+        else:
+            word_count_dict[word] = 1
+    for word, count in word_count_dict.items():
+        print(word, count)
 
 
+# Other way of doing it:
+#     word_count = {}
+#     word_count[word] = word_count.get(word, 0) + 1
+#     print(word_count)
+
+# for word, count in word_count.items():
+#     print(word, count)
 
 
 if __name__ == "__main__":

@@ -1,16 +1,25 @@
+import string
 STOP_WORDS = [
-    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
-    'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
 
-import string
+
 
 def remove_punctuation(str):
     for character in str:
         if character in string.punctuation:
             str = str.replace(character, "")
     return str
+
+
+def remove_stop_words(word_list):
+    no_stop_words = []
+    for word in word_list:
+        if word not in STOP_WORDS:
+            no_stop_words.append(word)
+    return no_stop_words
+
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
@@ -22,7 +31,8 @@ def print_word_freq(file):
     word_list = clean_text.lower().split()
     print(word_list)
     word_count_dict = {}
-
+    cleaner_text = remove_stop_words(word_list)
+    print(cleaner_text)
     # to make the word count:
 #     for word in word_list: 
 #         if word in word_count_dict.keys():

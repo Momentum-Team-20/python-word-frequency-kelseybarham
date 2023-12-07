@@ -1,0 +1,50 @@
+to remove punctuation, use replace:
+
+s = "Hello, World!"
+s = s.replace(",", "")
+s = s.replace("!", "")
+print(s)
+
+output:
+Hello World
+
+\\
+The lower() methods returns the lowercased string from the given string.
+
+# input string
+string = "	 Python 3.0, released in 2008, was a major revision of the language that is not completely backward compatible and much Python 2 code does not run unmodified on Python 3. With Python 2's end-of-life, only Python 3.6.x[30] and later are supported, with older versions still supporting e.g. Windows 7 (and old installers not restricted to 64-bit Windows)."
+
+# convert to lower case
+lower_string = string.lower()
+print(lower_string)
+\\
+
+
+Freddie (he/they) (Nov 1, 2023, 9:35 AM)
+https://www.py4e.com/lessons/dictionary#
+Messages addressed to "Meeting Group Chat" will also appear in the meeting group chat in Team Chat
+ 
+Maria Angeles (Nov 1, 2023, 9:35 AM)
+https://youtu.be/oiqqmKZWZ2o?si=dJ5u9TNz7LSzYlSZ
+This was used as a resource for the video I just dropped: https://machinelearningmastery.com/clean-text-machine-learning-python/
+
+//
+
+PUNCTUATION = ['!', '.', '?']
+
+import string
+print(string.punctuation)
+
+def remove_punctuation(str):
+for character in str:
+    if character in string.punctuation:
+    sentence = str.replace(character, "")
+return str
+
+def convert_to_list(str):
+    return str.split()
+
+cleaned_string = remove_punctuation(sentence)
+print(f'cleaned_string: {cleaned_string}')
+word_list = convert_to_list(cleaned_string)
+print(f'word_list: {word_list}')
